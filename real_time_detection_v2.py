@@ -23,7 +23,7 @@ import os
 import json
 
 # ==================== 常量定义 ====================
-VERSION = "v1.1.0"
+VERSION = "v1.0.0"
 AUTHOR = "杜玛"
 COPYRIGHT = "Copyright © 杜玛. All rights reserved."
 
@@ -881,12 +881,12 @@ class ChangeDetectionApp:
         self.canvas.pack(fill=tk.BOTH, expand=True)
         
         # 控制面板区域 (固定高度250像素)
-        self.control_panel_frame = tk.Frame(self.main_frame, bd=2, relief=tk.RAISED, height=350)
+        self.control_panel_frame = tk.Frame(self.main_frame, bd=2, relief=tk.RAISED, height=250)
         self.control_panel_frame.pack_propagate(False)  # 固定高度
         self.control_panel_frame.pack(fill=tk.X, pady=0)
         
         # 日志区域 (固定高度100像素)
-        self.log_frame = tk.Frame(self.main_frame, bd=2, relief=tk.SUNKEN, height=100)
+        self.log_frame = tk.Frame(self.main_frame, bd=2, relief=tk.SUNKEN, height=120)
         self.log_frame.pack_propagate(False)  # 固定高度
         self.log_frame.pack(fill=tk.BOTH, pady=0)
         

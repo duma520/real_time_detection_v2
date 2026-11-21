@@ -1,0 +1,2 @@
+python --version
+where python

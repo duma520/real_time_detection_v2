@@ -1,0 +1,87 @@
+### 🤖 Assistant
+
+使用 PyInstaller 将 Python 脚本打包成 exe 文件的步骤如下：
+
+### 1. 安装 PyInstaller
+```bash
+pip install pyinstaller
+```
+
+### 2. 基本打包命令
+```bash
+pyinstaller -F -w -i icon.ico real_time_detection.py
+```
+
+常用参数说明：
+- `-F`：打包成单个 exe 文件
+- `-w`：不显示控制台窗口（GUI程序使用）
+- `-i icon.ico`：指定程序图标（可选）
+- `real_time_detection.py`：你的主程序文件
+
+### 3. 完整打包命令（推荐）
+```bash
+pyinstaller -F -w --add-data "icon.ico;." --hidden-import win32timezone -i icon.ico real_time_detection.py
+```
+
+额外参数说明：
+- `--add-data`：添加额外文件（如图标、配置文件等）
+- `--hidden-import`：显式指定隐藏导入的模块
+
+### 4. 打包后文件位置
+打包完成后，exe 文件会生成在：
+- `dist/` 目录下（单文件模式）
+- `build/` 目录包含临时文件
+
+### 5. 常见问题解决
+
+#### 1) 如果程序依赖 OpenCV：
+```bash
+pyinstaller -F -w --hidden-import cv2 --hidden-import numpy -i icon.ico real_time_detection.py
+```
+
+#### 2) 如果程序需要数据文件：
+```bash
+pyinstaller -F -w --add-data "data/*;data/" real_time_detection.py
+```
+
+#### 3) 如果打包后程序很大：
+可以尝试使用 `--onefile` 替代 `-F`，并添加 UPX 压缩：
+```bash
+pyinstaller --onefile --upx-dir=path/to/upx real_time_detection.py
+```
+
+### 6. 高级选项
+
+#### 创建 spec 文件自定义打包：
+```bash
+pyinstaller --name=MyApp real_time_detection.py
+```
+然后编辑生成的 `MyApp.spec` 文件，再运行：
+```bash
+pyinstaller MyApp.spec
+```
+
+#### 减小打包体积：
+```bash
+pyinstaller -F -w --exclude-module matplotlib --exclude-module scipy real_time_detection.py
+```
+
+### 7. 注意事项
+1. 建议在虚拟环境中打包，避免包含不必要的依赖
+2. 打包前测试所有功能是否正常
+3. 如果程序有外部依赖（如 DLL 文件），需要手动包含
+4. 杀毒软件可能会误报，可以添加白名单或代码签名
+
+### 8. 完整示例（针对你的程序）
+```bash
+pyinstaller -F -w ^
+--hidden-import win32timezone ^
+--hidden-import PIL ^
+--hidden-import mss ^
+--hidden-import psutil ^
+--add-data "icon.ico;." ^
+-i icon.ico ^
+real_time_detection.py
+```
+
+这样打包后的 exe 文件就可以在没有 Python 环境的 Windows 电脑上运行了。

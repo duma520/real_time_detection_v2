@@ -1,0 +1,9 @@
+版本号增加的规范：
+主版本号(Major)：重大更新时增加（如 1.0.0 → 2.0.0）
+次版本号(Minor)：新增功能时增加（如 1.0.0 → 1.1.0）
+修订号(Patch)：修复bug时增加（如 1.0.0 → 1.0.1）
+
+# Version: 1.1.0
+# Author: 杜玛
+# Copyright © 2025 杜玛府. All rights reserved.
+root.title(f"智能变化检测系统 - 控制面板 ({version} | {author} | {copyrigh})")

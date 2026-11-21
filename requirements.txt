@@ -1,0 +1,16 @@
+# 基础依赖
+opencv-python>=4.5.5
+Pillow>=9.0.0
+numpy>=1.21.0
+mss>=6.1.0
+pywin32>=303
+psutil>=5.8.0
+
+# 可选加速后端依赖
+torch>=1.10.0  # PyTorch
+torchvision>=0.11.0
+onnxruntime>=1.10.0  # ONNX Runtime
+tensorrt>=8.2.0  # TensorRT
+openvino>=2022.1.0  # OpenVINO
+numba>=0.55.0  # Numba
+tensorflow>=2.7.0  # MobileNet

@@ -1,0 +1,10 @@
+pyinstaller --windowed real_time_detection.py
+
+常用参数说明：
+
+-F：打包成单个 exe 文件
+-w：不显示控制台窗口（GUI程序使用）
+-i icon.ico：指定程序图标（可选）
+real_time_detection.py：你的主程序文件
+
+pyinstaller -F -w real_time_detection.py
