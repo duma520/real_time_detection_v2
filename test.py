@@ -1563,4 +1563,8 @@ class ChangeDetectionApp:
         button_frame = tk.Frame(selection_window)
         button_frame.pack(pady=10)
         
-        select_button = tk.Button(button_frame,
+        select_button = tk.Button(button_frame, text="确定", command=on_select)
+        select_button.pack(side=tk.LEFT, padx=10)
+        
+        cancel_button = tk.Button(button_frame, text="取消", command=on_cancel)
+        cancel_button.pack(side=tk.LEFT, padx=10)
